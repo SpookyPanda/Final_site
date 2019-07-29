@@ -11,7 +11,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from braces.views import SelectRelatedMixin
 
 from .models import Post
-from . import forms
 
 from django.contrib import messages
 from django.contrib.auth import get_user_model
