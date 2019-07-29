@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block titlehere %}Sign in!{% endblock titlehere %}
+
+{% block body %}
+	<div class="row">
+		<div class="container col-sm-8">
+			<h1>Sign UP!</h1>
+
+			<form method="POST">
+				{% csrf_token %}
+				{% bootstrap_form form %}
+
+				<input type="submit" value="Sign me in!" class="btn btn-primary">
+			</form>
+		</div>
+
+		<div class="jumbotron col-sm-4">
+			<h3>Join your favorite topics like:</h3>
+			<ul>
+				<li>Spiderman!</li>
+				<li>Dinosaurs!</li>
+				<li>Manga!</li>
+				<li>IDK... CTG's? <i>Are people still into CTG's?... <small>Frank are CTG's still a thing?<sub>I thougth it was an 80's thing</sub></small></i></li>
+				<li>CTG'S!</li>
+			</ul>
+		</div>
+	</div>
+{% endblock body %}
