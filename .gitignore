@@ -2,6 +2,7 @@
 *~
 __pycache__
 db.sqlite3
-/static
-/media
+static/admin/
+static/js/
+media/*
 .DS_Store

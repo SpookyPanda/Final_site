@@ -54,11 +54,13 @@ class PostDetails(SelectRelatedMixin,generic.DetailView):
 
 
 class CreatePost(LoginRequiredMixin,SelectRelatedMixin,generic.CreateView):
-	fields = ('message','group')
+	fields = ('message','group','image')
 	model = Post
 
 	def form_valid(self,form):
 		self.object = form.save(commit=False)
+		if 'image' in self.request.FILES:
+			self.object.image = self.request.FILES['image']
 		self.object.user = self.request.user
 		self.object.save()
 		return super().form_valid(form)

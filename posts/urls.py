@@ -2,6 +2,9 @@ from django.urls import re_path, path
 
 from . import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 app_name = 'posts'
 
 urlpatterns = [
@@ -11,3 +14,4 @@ urlpatterns = [
 	re_path(r'by/(?P<username>[-\w]+)/(?P<pk>\d+)/$', views.PostDetails.as_view(), name='single'),
 	re_path(r'delete/(?P<pk>\d+)/$', views.DeletePost.as_view(), name='delete'),
 ]
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

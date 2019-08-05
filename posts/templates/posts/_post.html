@@ -1,5 +1,8 @@
 <div class="post-media">
 	<h3>{{ post.message_html|safe }}</h3>
+	{% if post.image %}
+		<img class="img-responsive" src="{{ post.image.url }}">
+	{% endif %}
 	<div class="media-body">
 		<strong>{{ post.user.username }}</strong>
 		<h5 class="media-heading">

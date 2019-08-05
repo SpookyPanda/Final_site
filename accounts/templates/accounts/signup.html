@@ -6,14 +6,16 @@
 {% block body %}
 	<div class="row">
 		<div class="container col-sm-8">
-			<h1>Sign UP!</h1>
+			<div class="container">
+				<h1>Sign UP!</h1>
 
-			<form method="POST">
-				{% csrf_token %}
-				{% bootstrap_form form %}
+				<form method="POST">
+					{% csrf_token %}
+					{% bootstrap_form form %}
 
-				<input type="submit" value="Sign me in!" class="btn btn-primary">
-			</form>
+					<input type="submit" value="Sign me in!" class="btn btn-primary">
+				</form>
+			</div>
 		</div>
 
 		<div class="jumbotron col-sm-4">

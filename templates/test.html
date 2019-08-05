@@ -3,10 +3,12 @@
 {% block titlehere %}Welcome to Retter!{% endblock titlehere %}
 
 {% block body %}
-	<h1>Succesful log in!</h1>
-	{% if user.is_authenticated %}
-		<h3>congratulations! you indeed know your username and password, look at you go champ!</h3>		
-	{% else %}
-		<h3>Wait, no, you tried to fool the system,but I gotcha</h3>
-	{% endif %}
+	<div class="container">
+		<h1>Succesful log in!</h1>
+		{% if user.is_authenticated %}
+			<h3>congratulations! you indeed know your username and password, look at you go champ!</h3>		
+		{% else %}
+			<h3>Wait, no, you tried to fool the system,but I gotcha</h3>
+		{% endif %}
+	</div>
 {% endblock body %}
