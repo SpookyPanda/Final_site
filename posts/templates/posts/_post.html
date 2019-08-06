@@ -1,4 +1,4 @@
-<div class="post-media">
+<div class="post-media filler2">
 	<h3>{{ post.message_html|safe }}</h3>
 	{% if post.image %}
 		<img class="img-responsive" src="{{ post.image.url }}">
@@ -6,16 +6,18 @@
 	<div class="media-body">
 		<strong>{{ post.user.username }}</strong>
 		<h5 class="media-heading">
-			<span class="username"><a href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }}</a></span>
+			<span class="username"><a class="main2" href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }}</a></span>
 			<time class="time"><a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{ post.created_at }}</a></time>
 			{% if post.group %}
-				<span class="group-name">in <a href="{% url 'groups:single' slug=post.group.slug %}">{{ post.group.name }}</a></span>
+				<span class="group-name">
+					in <a class="main1" href="{% url 'groups:single' slug=post.group.slug %}">{{ post.group.name }}</a>
+				</span>
 			{% endif %}
 		</h5>
 
 		<div class="media-footer">
 			{% if user.is_authenticated and post.user == user and not hide_delete %}
-				<a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn-btn-lg btn-danger">
+				<a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-danger">
 					<span class="text-warning">Delete</span>
 				</a>
 			{% endif %}

@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
+from django.core.validators import FileExtensionValidator
 
 import misaka
 
@@ -23,7 +24,9 @@ class Post(models.Model):
 	created_at = models.DateTimeField(auto_now=True)
 	message = models.TextField()
 	message_html = models.TextField(editable=False)
-	image = models.ImageField(upload_to=get_image_path, blank=True)
+	image = models.ImageField(upload_to=get_image_path,
+		validators=[FileExtensionValidator(['jpg','png','jpeg','pdf','gif','ico','img'])],
+		blank=True)
 	group = models.ForeignKey(Group,related_name='posts',null=True,blank=True, on_delete=models.CASCADE)
 
 	def __str__(self):

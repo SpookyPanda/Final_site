@@ -1,6 +1,7 @@
 {% extends "groups/group_base.html" %}
 
 {% block pregroup %}
+<div class="container col-md-3">
 	<h1>{{ group.name }}</h1>
 	<h2>Members: {{ group.members.count }}</h2>
 
@@ -12,12 +13,14 @@
 			<a href="{% url 'groups:join' slug=group.slug %}" class="btn btn-sm btn-danger">Join</a>
 		{% endif %}
 
+</div>
+
 	</div>
 
 {% endblock pregroup %}
 
 {% block group_content %}
-	<div class="col-md-8">
+	<div class="col-md-9">
 
 		{% if group.posts.count == 0 %}
 
@@ -26,7 +29,9 @@
 		{% else %}
 
 			{% for post in group.posts.all %}
-				{% include "posts/_post.html" %}
+				<div class="jumbotron filler2 border">
+					{% include "posts/_post.html" %}				
+				</div>
 			{% endfor %}
 
 		{% endif %}

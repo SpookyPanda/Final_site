@@ -1,16 +1,20 @@
 {% extends "posts/post_base.html" %}
 
 {% block prepost %}
-	<div class="col-md-4">
+	<div class="col-md-3">
 		<h1>@{{ post_user.username }}</h1>
 		<p>Post history</p>
 	</div>
 {% endblock prepost %}
 
 {% block post_content %}
-	<div class="col-md-8">
+	<div class="col-md-9">
 		{% for post in post_list %}
-			{% include "posts/_post.html" %}
+			<div class="container">
+				<div class="jumbotron filler2">
+					{% include "posts/_post.html" %}								
+				</div>
+			</div>
 		{% endfor %}
 	</div>
 {% endblock post_content %}

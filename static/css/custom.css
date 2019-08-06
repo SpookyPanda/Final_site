@@ -1,0 +1,36 @@
+.nav-custom{
+background-color: #F15946;
+}
+
+.custom-item{
+	color: #0C090D !important;
+}
+
+.main1{
+	color: #0C090D;
+	font-family: Anton;
+}
+ .main1:hover{
+ 	color: #36283A;
+ }
+
+.main2{
+	color: #E01A4F;
+	font-family: Lato;
+}
+
+.main2:hover{
+	color: #EC5B81;
+}
+
+.filler1{
+	background-color: #F15946;
+}
+
+.filler2{
+	background-color: #F9C22E;
+}
+
+.filler3{
+	background-color: #53B3CB;
+}
