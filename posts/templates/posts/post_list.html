@@ -40,7 +40,11 @@
 {% block post_content %}
 	<div class="col-md-9">
 		{% for post in post_list %}
-			{% include "posts/_post.html" %}
+			<div class="container">
+				<div class="jumbotron filler2">
+					{% include "posts/_post.html" %}
+				</div>
+			</div>
 		{% endfor %}
 	</div>
 {% endblock post_content %}
