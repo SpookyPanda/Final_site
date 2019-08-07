@@ -1,4 +1,5 @@
 django~=2.0.6
+argon2-cffi
 django-bootstrap4
 django-misaka
 django-braces

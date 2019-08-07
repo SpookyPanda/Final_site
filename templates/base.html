@@ -39,7 +39,10 @@
 
 	    			{% if user.is_authenticated %}
 	    				<li class="nav-item">
-	    					<a class="nav-link custom-item" href="{% url 'posts:create' %}">New Post</a>
+	    					<a class="nav-link custom-item" href="{% url 'posts:all' %}">New posts</a>
+	    				</li>
+	    				<li class="nav-item">
+	    					<a class="nav-link custom-item" href="{% url 'posts:create' %}">Create Post</a>
 	    				</li>
 	    				<li class="nav-item">
 	    					<a class="nav-link custom-item" href="{% url 'groups:all' %}">Groups</a>
@@ -48,6 +51,10 @@
 	    					<a class="nav-link custom-item" href="{% url 'groups:create' %}">New Group</a>
 	    				</li>
 	    			{% else %}
+	    				<li class="nav-item">
+	    					<a class="nav-link custom-item" href="{% url 'posts:all' %}">New posts</a>
+	    				</li>
+
 	    				<li class="nav-item">
 	    					<a class="nav-link custom-item" href="{% url 'groups:all' %}">Groups</a>
 	    				</li>

@@ -1,5 +1,3 @@
-# https://stackoverflow.com/questions/31237042/whats-the-difference-between-select-related-and-prefetch-related-in-django-orm
-# https://stackoverflow.com/questions/36950416/when-to-use-get-get-queryset-get-context-data-in-django
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
