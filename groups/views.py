@@ -6,7 +6,14 @@ from django.contrib.auth.mixins import (LoginRequiredMixin
 										,PermissionRequiredMixin)
 from django.views import generic
 from .models import Group, GroupMember
-# Create your views here.
+
+#IF YOU CAN'T FIND THE URL:
+#if the template name is not listed in the class
+#it is generated and linked AUTOMATICALLY
+#
+#E.G.
+#the html for ListGroups is group_list.html, no need to
+#add it to URLS or specify the file 
 
 class CreateGroup(LoginRequiredMixin,generic.CreateView):
 	fields = ('name','description')

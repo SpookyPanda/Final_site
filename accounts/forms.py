@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
+#This is the new user form, asks for password twice
 class UserForm(UserCreationForm):
 
 	class Meta:

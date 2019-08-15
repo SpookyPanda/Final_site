@@ -1,0 +1,10 @@
+{% extends "posts/post_base.html" %}
+
+{% block post_content %}
+	<h4>Share your wisdom</h4>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="btn btn-success">Post Comment</button>
+	</form>
+{% endblock post_content %}

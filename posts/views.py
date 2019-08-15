@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
@@ -12,7 +12,14 @@ from .models import Post
 
 from django.contrib import messages
 from django.contrib.auth import get_user_model
-# Create your views here.
+
+from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
+
+#IF YOU CAN'T FIND THE URL:
+#if the template name is not listed in the class
+#it is generated and linked AUTOMATICALLY
+
 User=get_user_model()
 
 class PostList(SelectRelatedMixin,generic.ListView):
@@ -76,3 +83,31 @@ class DeletePost(LoginRequiredMixin,SelectRelatedMixin,generic.DeleteView):
 	def delete(self,*args,**kwargs):
 		messages.success(self.request,"Post deleted")
 		return super().delete(*args,**kwargs)
+
+################
+#Comments stuff#
+################
+
+@login_required
+def add_comment(request,pk):
+	post = get_object_or_404(Post,pk=pk)
+	if request.method == 'POST':
+		form = CommentForm(request.POST)
+		if form.is_valid():
+			comment = form.save(commit=False)
+			comment.author = 'post.user.username'
+			comment.post = post
+			comment.save()
+			return redirect('posts:single',pk)
+	else:
+		form = CommentForm()
+	return render(request,'posts/comment_form.html')
+
+
+
+@login_required
+def comment_delete(request, pk):
+	post = get_object_or_404(Comment,pk=pk)
+	post_pk = comment.post.pk
+	comment.delete()
+	return redirect('post_details', pk=post_pk)

@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    #Pardon the hack with the includes but i needed to add namespace
+    #if I do it like include(url,namespace) it crashes
     path('admin/', admin.site.urls),
     path('', views.HomePage.as_view(), name="home"),
     path('accounts/', include(('accounts.urls','accounts'), namespace='accounts')),
