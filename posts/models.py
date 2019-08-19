@@ -24,9 +24,7 @@ def get_image_path(instance, filename):
 	return os.path.join('photos',str(instance.user.username),filename)
 
 #Since it has not id when the form is filled it generates NONE.ext
-#Used UUID instead of two steps save, work with pk if id does funny stuff (shouldn't do)
 class Post(models.Model):
-	id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
 	user = models.ForeignKey(User,related_name='posts',on_delete=models.CASCADE)
 	created_at = models.DateTimeField(auto_now=True)
 	message = models.TextField()
@@ -56,7 +54,6 @@ class Post(models.Model):
 #################
 class Comment(models.Model):
 	post = models.ForeignKey('posts.Post', related_name = 'comments', on_delete=models.CASCADE)
-	author = models.ForeignKey('posts.Post',related name = 'user.username',on_delete=models.CASCADE)
 	text = models.TextField()
 	create_date = models.DateTimeField(default=timezone.now)
 
