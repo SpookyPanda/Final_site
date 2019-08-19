@@ -10,20 +10,23 @@ import misaka
 from groups.models import Group
 
 import os
+import uuid
 
 
 User=get_user_model()
 
 
 #Function to store uploaded images in /media/photos as the id of the post
+#No image resize since it's a small site "_post.html" makes sure it fits on screen
 def get_image_path(instance, filename):
 	ext = filename.split('.')[-1]
 	filename =  "%s.%s"%(instance.id,ext)
-	return os.path.join('media','photos',str(instance.user.username),filename)
+	return os.path.join('photos',str(instance.user.username),filename)
 
-#IMPORTANT, it can't save the images properly, needs two steps save
-#images are saved as none.ext because id is not generated yet
+#Since it has not id when the form is filled it generates NONE.ext
+#Used UUID instead of two steps save, work with pk if id does funny stuff (shouldn't do)
 class Post(models.Model):
+	id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
 	user = models.ForeignKey(User,related_name='posts',on_delete=models.CASCADE)
 	created_at = models.DateTimeField(auto_now=True)
 	message = models.TextField()
@@ -51,15 +54,14 @@ class Post(models.Model):
 #################
 #working on this#
 #################
-# class Comment(models.Model):
-# 	post = models.ForeignKey('posts.Post', related_name = 'comments', on_delete=models.CASCADE)
-# 	author = models.ForeignKey(Post,on_delete=models.CASCADE)
-# 	text = models.TextField()
-# 	create_date = models.DateTimeField(default=timezone.now)
-# 	approved_comment = 	models.BooleanField(default=True)
+class Comment(models.Model):
+	post = models.ForeignKey('posts.Post', related_name = 'comments', on_delete=models.CASCADE)
+	author = models.ForeignKey('posts.Post',related name = 'user.username',on_delete=models.CASCADE)
+	text = models.TextField()
+	create_date = models.DateTimeField(default=timezone.now)
 
-# 	def get_absolute_url(self):
-# 		return reverse("posts:single")
+	def get_absolute_url(self):
+		return reverse("posts:single")
 
-# 	def __str__(self):
-# 		return self.text
+	def __str__(self):
+		return self.text

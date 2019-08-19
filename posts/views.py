@@ -17,10 +17,14 @@ from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 
 #IF YOU CAN'T FIND THE URL:
-#if the template name is not listed in the class
+#if the template name is not defined in the class
 #it is generated and linked AUTOMATICALLY
 
 User=get_user_model()
+
+#############
+#Posts stuff#
+#############
 
 class PostList(SelectRelatedMixin,generic.ListView):
 	model = Post
