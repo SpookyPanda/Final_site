@@ -3,7 +3,7 @@
 __pycache__
 db.sqlite3
 static/admin/
-static/js/
 media/*
 .DS_Store
 webvenv/
+get-pip.py

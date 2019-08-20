@@ -34,3 +34,12 @@ background-color: #F15946;
 .filler3{
 	background-color: #53B3CB;
 }
+
+/*This is for the TicTacToe*/
+[game]{
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  border: 5px solid black;
+  font-size: 100px;
+}
