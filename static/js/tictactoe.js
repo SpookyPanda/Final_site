@@ -1,4 +1,4 @@
-//variable to check what turn it is
+//variable to switch x and o
 p=0;
 
 //definition of variables to interact with the user input
@@ -41,7 +41,6 @@ function mark(){
       this.textContent="o"
     }
   }else {
-    alert("Pick an empty slot");
     p--
   }
   p++
