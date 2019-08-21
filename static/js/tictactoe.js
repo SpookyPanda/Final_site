@@ -41,15 +41,15 @@ function mark(){
       this.textContent="o"
     }
   }else {
-    alert("celda ocupada");
+    alert("Pick an empty slot");
     p--
   }
   p++
   if (winCheck(this.textContent)){
-    alert(this.textContent+" gana!")
+    alert(this.textContent+" wins!")
     clearBoard()
   }else if (p>=9) {
-    alert("Empate, o alguien ganó y llenaste el resto de las casillas")
+    alert("Draw")
   }
 }
 
