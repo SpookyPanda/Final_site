@@ -4,3 +4,4 @@ django-bootstrap4
 django-misaka
 django-braces
 pillow
+bcrypt
