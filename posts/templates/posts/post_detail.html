@@ -7,5 +7,18 @@
 				{% include "posts/_post.html" %}		
 			</div>
 		</div>
+		<div class="container">
+			{% for comment in post.comments.all %}
+				<div class="container">
+					<div class="jumbotron filler3 border border-dark">
+						<p>{{ comment.text|linebreaks }}</p>
+						<span><a class="main2" href="{% url 'posts:for_user' username=comment.user.username %}">@{{ comment.user.username }}</a></span>
+						<time class="time">{{ comment.create_date }}</time>
+					</div>
+				</div>
+			{% empty %}
+				<P>Oops, nothin in here, be the first comment!</P>
+			{% endfor %}
+		</div>
 	</div>
 {% endblock post_content %}

@@ -1,28 +1,45 @@
+/*Just to change letter colors on links*/
 .nav-custom{
 background-color: #F15946;
 }
-
 .custom-item{
 	color: #0C090D !important;
 }
+body { padding-top: 70px; }
 
+/*MAIN COLORS, BLACK AND PINK*/
 .main1{
 	color: #0C090D;
 	font-family: Anton;
 }
- .main1:hover{
- 	color: #36283A;
- }
+.main1:hover{
+	color: #36283A;
+}
+.btn-main1{
+	background-color: #0C090D;
+	color: pink;
+}
+.btn-main1:hover{
+	background-color: #36283A;
+}
+
 
 .main2{
 	color: #E01A4F;
 	font-family: Lato;
 }
-
 .main2:hover{
 	color: #EC5B81;
 }
+.btn-main2{
+	background-color: #E01A4F;
+	color: black;
+}
+.btn-main2:hover{
+	background-color: #EC5B81;
+}
 
+/*FILLER COLORS, BLUE, RED, YELOW*/
 .filler1{
 	background-color: #F15946;
 }

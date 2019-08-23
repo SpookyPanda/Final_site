@@ -99,13 +99,13 @@ def add_comment(request,pk):
 		form = CommentForm(request.POST)
 		if form.is_valid():
 			comment = form.save(commit=False)
-			comment.author = 'post.user.username'
+			comment.author = comment.user.username
 			comment.post = post
 			comment.save()
-			return redirect('posts:single',pk)
+			return redirect('posts:single',username=post.user.username,pk=post.pk)
 	else:
 		form = CommentForm()
-	return render(request,'posts/comment_form.html')
+	return render(request,'posts/comment_form.html',{'form':form})
 
 
 
