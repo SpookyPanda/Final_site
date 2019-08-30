@@ -49,9 +49,7 @@ class Post(models.Model):
 		ordering = ['-created_at']
 		unique_together = ['user','message']
 		
-#################
-#working on this#
-#################
+
 class Comment(models.Model):
 	user = models.ForeignKey(User,related_name='comments',on_delete=models.CASCADE, default=True)
 	post = models.ForeignKey('posts.Post', related_name = 'comments', on_delete=models.CASCADE)
@@ -63,3 +61,32 @@ class Comment(models.Model):
 
 	def __str__(self):
 		return self.text
+
+#################
+#working on this#
+#################
+# the idea is to make something like a like or upvote that actually works but not show a count
+# i need to ellaborate the idea
+
+class PostPoint(models.Model):
+	user = models.ForeignKey(User,on_delete=models.CASCADE)
+	post = models.ForeignKey(Post,on_delete=models.CASCADE)
+	total = models.IntegerField()
+
+	def __str__(self):
+		pass
+
+	class Meta():
+		unique_together = ("user","post","total")
+
+
+class CommentPoint(models.Model):
+	user = models.ForeignKey(User,on_delete=models.CASCADE)
+	comment = models.ForeignKey(Comment,on_delete=models.CASCADE)
+	total = models.IntegerField()
+
+	def __str__(self):
+		pass
+
+	class Meta():
+		unique_together = ("user","comment","total")
