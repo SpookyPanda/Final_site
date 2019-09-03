@@ -1,9 +1,9 @@
 from django.urls import re_path, path
 
-from . import views
-
 from django.conf import settings
 from django.conf.urls.static import static
+
+from . import views
 
 app_name = 'posts'
 #everythin here is under the pattern posts/

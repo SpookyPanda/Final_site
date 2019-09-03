@@ -6,11 +6,10 @@ from django.contrib.auth import get_user_model
 from django.utils import timezone
 
 import misaka
+import os
 
 from groups.models import Group
 
-import os
-import uuid
 
 
 User=get_user_model()

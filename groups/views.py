@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.contrib.auth.mixins import (LoginRequiredMixin
 										,PermissionRequiredMixin)
 from django.views import generic
+
 from .models import Group, GroupMember
 
 #IF YOU CAN'T FIND THE URL:
