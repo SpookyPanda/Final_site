@@ -22,11 +22,14 @@ urlpatterns = [
 		name='single'),
 	re_path(r'delete/(?P<pk>\d+)/$',
 		views.DeletePost.as_view(), name='delete'),
+	re_path(r'^(?P<pk>\d+)/edit/',
+    	views.UpdatePost.as_view(),
+    	name='edit_post'),
 	re_path(r'^(?P<pk>\d+)/comment/$',
 		views.add_comment,
 		name='add_comment'),
     re_path(r'^(?P<pk>\d+)/delete/$',
     	views.comment_delete,
-    	name='delete_comment'),
+    	name='delete_comment')
 ]
 # urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -28,6 +28,9 @@
 				<a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-danger">
 					<span class="text-warning">Delete</span>
 				</a>
+				<a href="{% url 'posts:edit_post' pk=post.pk %}">
+					<span class="text-danger">Edit</span>
+				</a>
 			{% endif %}
 		</div>
 	</div>

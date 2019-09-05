@@ -88,6 +88,12 @@ class DeletePost(LoginRequiredMixin,SelectRelatedMixin,generic.DeleteView):
 		messages.success(self.request,"Post deleted")
 		return super().delete(*args,**kwargs)
 
+class UpdatePost(LoginRequiredMixin,SelectRelatedMixin,generic.UpdateView):
+	model = Post
+	fields = ['message']
+	template_name_sufix = '_update_form'
+	select_related = ('user','group')
+
 ################
 #Comments stuff#
 ################
