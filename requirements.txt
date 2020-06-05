@@ -1,4 +1,4 @@
-django==2.0.13
+django==2.2.13
 argon2-cffi==19.0.1
 django-bootstrap4==0.0.8
 django-misaka==2.1.1
